@@ -1,0 +1,100 @@
+!_TAG_FILE_FORMAT	2	/extended format; --format=1 will not append ;" to lines/
+!_TAG_FILE_SORTED	1	/0=unsorted, 1=sorted, 2=foldcase/
+!_TAG_PROGRAM_AUTHOR	Darren Hiebert	/dhiebert@users.sourceforge.net/
+!_TAG_PROGRAM_NAME	Exuberant Ctags	//
+!_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
+!_TAG_PROGRAM_VERSION	5.9~svn20110310	//
+CXX	Makefile	/^    CXX=g++-10$/;"	m
+CXX	Makefile	/^CXX := g++$/;"	m
+CXXFLAGS	Makefile	/^CXXFLAGS := -I.\/common -O3 -std=c++17 -Wall$/;"	m
+EXP_MAX	def.h	3;"	d
+LOGGER_H_	logger.h	2;"	d
+Log	logger.h	/^struct Log {$/;"	s
+Logger	logger.h	/^class Logger {$/;"	c
+MAX_INST_LEN	logger.h	9;"	d
+Makefile	Makefile	1;"	F
+PPINTRIN_H_	PPintrin.h	2;"	d
+PPintrin.cpp	PPintrin.cpp	1;"	F
+PPintrin.h	PPintrin.h	1;"	F
+Statistics	logger.h	/^struct Statistics {$/;"	s
+VECTOR_WIDTH	def.h	2;"	d
+__pp_mask	PPintrin.h	/^struct __pp_mask : __pp_vec<bool> {};$/;"	s
+__pp_vec	PPintrin.h	/^struct __pp_vec {$/;"	s
+__pp_vec_float	PPintrin.h	23;"	d
+__pp_vec_int	PPintrin.h	26;"	d
+_pp_cntbits	PPintrin.cpp	/^int _pp_cntbits(__pp_mask &maska)$/;"	f
+_pp_hadd	PPintrin.cpp	/^void _pp_hadd(__pp_vec<T> &vecResult, __pp_vec<T> &vec)$/;"	f
+_pp_hadd_float	PPintrin.cpp	/^void _pp_hadd_float(__pp_vec_float &vecResult, __pp_vec_float &vec) { _pp_hadd<float>(vecResult, vec); }$/;"	f
+_pp_init_ones	PPintrin.cpp	/^__pp_mask _pp_init_ones(int first)$/;"	f
+_pp_interleave	PPintrin.cpp	/^void _pp_interleave(__pp_vec<T> &vecResult, __pp_vec<T> &vec)$/;"	f
+_pp_interleave_float	PPintrin.cpp	/^void _pp_interleave_float(__pp_vec_float &vecResult, __pp_vec_float &vec) { _pp_interleave<float>(vecResult, vec); }$/;"	f
+_pp_mask_and	PPintrin.cpp	/^__pp_mask _pp_mask_and(__pp_mask &maska, __pp_mask &maskb)$/;"	f
+_pp_mask_not	PPintrin.cpp	/^__pp_mask _pp_mask_not(__pp_mask &maska)$/;"	f
+_pp_mask_or	PPintrin.cpp	/^__pp_mask _pp_mask_or(__pp_mask &maska, __pp_mask &maskb)$/;"	f
+_pp_vabs	PPintrin.cpp	/^void _pp_vabs(__pp_vec<T> &vecResult, __pp_vec<T> &veca, __pp_mask &mask)$/;"	f
+_pp_vabs_float	PPintrin.cpp	/^void _pp_vabs_float(__pp_vec_float &vecResult, __pp_vec_float &veca, __pp_mask &mask) { _pp_vabs<float>(vecResult, veca, mask); }$/;"	f
+_pp_vabs_int	PPintrin.cpp	/^void _pp_vabs_int(__pp_vec_int &vecResult, __pp_vec_int &veca, __pp_mask &mask) { _pp_vabs<int>(vecResult, veca, mask); }$/;"	f
+_pp_vadd	PPintrin.cpp	/^void _pp_vadd(__pp_vec<T> &vecResult, __pp_vec<T> &veca, __pp_vec<T> &vecb, __pp_mask &mask)$/;"	f
+_pp_vadd_float	PPintrin.cpp	/^void _pp_vadd_float(__pp_vec_float &vecResult, __pp_vec_float &veca, __pp_vec_float &vecb, __pp_mask &mask) { _pp_vadd<float>(vecResult, veca, vecb, mask); }$/;"	f
+_pp_vadd_int	PPintrin.cpp	/^void _pp_vadd_int(__pp_vec_int &vecResult, __pp_vec_int &veca, __pp_vec_int &vecb, __pp_mask &mask) { _pp_vadd<int>(vecResult, veca, vecb, mask); }$/;"	f
+_pp_vdiv	PPintrin.cpp	/^void _pp_vdiv(__pp_vec<T> &vecResult, __pp_vec<T> &veca, __pp_vec<T> &vecb, __pp_mask &mask)$/;"	f
+_pp_vdiv_float	PPintrin.cpp	/^void _pp_vdiv_float(__pp_vec_float &vecResult, __pp_vec_float &veca, __pp_vec_float &vecb, __pp_mask &mask) { _pp_vdiv<float>(vecResult, veca, vecb, mask); }$/;"	f
+_pp_vdiv_int	PPintrin.cpp	/^void _pp_vdiv_int(__pp_vec_int &vecResult, __pp_vec_int &veca, __pp_vec_int &vecb, __pp_mask &mask) { _pp_vdiv<int>(vecResult, veca, vecb, mask); }$/;"	f
+_pp_veq	PPintrin.cpp	/^void _pp_veq(__pp_mask &maskResult, __pp_vec<T> &veca, __pp_vec<T> &vecb, __pp_mask &mask)$/;"	f
+_pp_veq_float	PPintrin.cpp	/^void _pp_veq_float(__pp_mask &maskResult, __pp_vec_float &veca, __pp_vec_float &vecb, __pp_mask &mask) { _pp_veq<float>(maskResult, veca, vecb, mask); }$/;"	f
+_pp_veq_int	PPintrin.cpp	/^void _pp_veq_int(__pp_mask &maskResult, __pp_vec_int &veca, __pp_vec_int &vecb, __pp_mask &mask) { _pp_veq<int>(maskResult, veca, vecb, mask); }$/;"	f
+_pp_vgt	PPintrin.cpp	/^void _pp_vgt(__pp_mask &maskResult, __pp_vec<T> &veca, __pp_vec<T> &vecb, __pp_mask &mask)$/;"	f
+_pp_vgt_float	PPintrin.cpp	/^void _pp_vgt_float(__pp_mask &maskResult, __pp_vec_float &veca, __pp_vec_float &vecb, __pp_mask &mask) { _pp_vgt<float>(maskResult, veca, vecb, mask); }$/;"	f
+_pp_vgt_int	PPintrin.cpp	/^void _pp_vgt_int(__pp_mask &maskResult, __pp_vec_int &veca, __pp_vec_int &vecb, __pp_mask &mask) { _pp_vgt<int>(maskResult, veca, vecb, mask); }$/;"	f
+_pp_vload	PPintrin.cpp	/^void _pp_vload(__pp_vec<T> &dest, T *src, __pp_mask &mask)$/;"	f
+_pp_vload_float	PPintrin.cpp	/^void _pp_vload_float(__pp_vec_float &dest, float *src, __pp_mask &mask) { _pp_vload<float>(dest, src, mask); }$/;"	f
+_pp_vload_int	PPintrin.cpp	/^void _pp_vload_int(__pp_vec_int &dest, int *src, __pp_mask &mask) { _pp_vload<int>(dest, src, mask); }$/;"	f
+_pp_vlt	PPintrin.cpp	/^void _pp_vlt(__pp_mask &maskResult, __pp_vec<T> &veca, __pp_vec<T> &vecb, __pp_mask &mask)$/;"	f
+_pp_vlt_float	PPintrin.cpp	/^void _pp_vlt_float(__pp_mask &maskResult, __pp_vec_float &veca, __pp_vec_float &vecb, __pp_mask &mask) { _pp_vlt<float>(maskResult, veca, vecb, mask); }$/;"	f
+_pp_vlt_int	PPintrin.cpp	/^void _pp_vlt_int(__pp_mask &maskResult, __pp_vec_int &veca, __pp_vec_int &vecb, __pp_mask &mask) { _pp_vlt<int>(maskResult, veca, vecb, mask); }$/;"	f
+_pp_vmove	PPintrin.cpp	/^void _pp_vmove(__pp_vec<T> &dest, __pp_vec<T> &src, __pp_mask &mask)$/;"	f
+_pp_vmove_float	PPintrin.cpp	/^void _pp_vmove_float(__pp_vec_float &dest, __pp_vec_float &src, __pp_mask &mask) { _pp_vmove<float>(dest, src, mask); }$/;"	f
+_pp_vmove_int	PPintrin.cpp	/^void _pp_vmove_int(__pp_vec_int &dest, __pp_vec_int &src, __pp_mask &mask) { _pp_vmove<int>(dest, src, mask); }$/;"	f
+_pp_vmult	PPintrin.cpp	/^void _pp_vmult(__pp_vec<T> &vecResult, __pp_vec<T> &veca, __pp_vec<T> &vecb, __pp_mask &mask)$/;"	f
+_pp_vmult_float	PPintrin.cpp	/^void _pp_vmult_float(__pp_vec_float &vecResult, __pp_vec_float &veca, __pp_vec_float &vecb, __pp_mask &mask) { _pp_vmult<float>(vecResult, veca, vecb, mask); }$/;"	f
+_pp_vmult_int	PPintrin.cpp	/^void _pp_vmult_int(__pp_vec_int &vecResult, __pp_vec_int &veca, __pp_vec_int &vecb, __pp_mask &mask) { _pp_vmult<int>(vecResult, veca, vecb, mask); }$/;"	f
+_pp_vset	PPintrin.cpp	/^void _pp_vset(__pp_vec<T> &vecResult, T value, __pp_mask &mask)$/;"	f
+_pp_vset_float	PPintrin.cpp	/^__pp_vec_float _pp_vset_float(float value)$/;"	f
+_pp_vset_float	PPintrin.cpp	/^void _pp_vset_float(__pp_vec_float &vecResult, float value, __pp_mask &mask) { _pp_vset<float>(vecResult, value, mask); }$/;"	f
+_pp_vset_int	PPintrin.cpp	/^__pp_vec_int _pp_vset_int(int value)$/;"	f
+_pp_vset_int	PPintrin.cpp	/^void _pp_vset_int(__pp_vec_int &vecResult, int value, __pp_mask &mask) { _pp_vset<int>(vecResult, value, mask); }$/;"	f
+_pp_vstore	PPintrin.cpp	/^void _pp_vstore(T *dest, __pp_vec<T> &src, __pp_mask &mask)$/;"	f
+_pp_vstore_float	PPintrin.cpp	/^void _pp_vstore_float(float *dest, __pp_vec_float &src, __pp_mask &mask) { _pp_vstore<float>(dest, src, mask); }$/;"	f
+_pp_vstore_int	PPintrin.cpp	/^void _pp_vstore_int(int *dest, __pp_vec_int &src, __pp_mask &mask) { _pp_vstore<int>(dest, src, mask); }$/;"	f
+_pp_vsub	PPintrin.cpp	/^void _pp_vsub(__pp_vec<T> &vecResult, __pp_vec<T> &veca, __pp_vec<T> &vecb, __pp_mask &mask)$/;"	f
+_pp_vsub_float	PPintrin.cpp	/^void _pp_vsub_float(__pp_vec_float &vecResult, __pp_vec_float &veca, __pp_vec_float &vecb, __pp_mask &mask) { _pp_vsub<float>(vecResult, veca, vecb, mask); }$/;"	f
+_pp_vsub_int	PPintrin.cpp	/^void _pp_vsub_int(__pp_vec_int &vecResult, __pp_vec_int &veca, __pp_vec_int &vecb, __pp_mask &mask) { _pp_vsub<int>(vecResult, veca, vecb, mask); }$/;"	f
+absSerial	serialOP.cpp	/^void absSerial(float *values, float *output, int N)$/;"	f
+absVector	vectorOP.cpp	/^void absVector(float *values, float *output, int N)$/;"	f
+addLog	logger.cpp	/^void Logger::addLog(const char *instruction, __pp_mask mask, int N)$/;"	f	class:Logger
+addUserLog	PPintrin.cpp	/^void addUserLog(const char *logStr)$/;"	f
+arraySumSerial	serialOP.cpp	/^float arraySumSerial(float *values, int N)$/;"	f
+arraySumVector	vectorOP.cpp	/^float arraySumVector(float *values, int N)$/;"	f
+clampedExpSerial	serialOP.cpp	/^void clampedExpSerial(float *values, int *exponents, float *output, int N)$/;"	f
+clampedExpVector	vectorOP.cpp	/^void clampedExpVector(float *values, int *exponents, float *output, int N)$/;"	f
+def.h	def.h	1;"	F
+initValue	main.cpp	/^void initValue(float *values, int *exponents, float *output, float *gold, unsigned int N)$/;"	f
+instruction	logger.h	/^  char instruction[MAX_INST_LEN];$/;"	m	struct:Log
+log	logger.h	/^    vector<Log> log;$/;"	m	class:Logger
+logger.cpp	logger.cpp	1;"	F
+logger.h	logger.h	1;"	F
+main	main.cpp	/^int main(int argc, char *argv[])$/;"	f
+main.cpp	main.cpp	1;"	F
+mask	logger.h	/^  unsigned long long mask; \/\/ support vector width up to 64$/;"	m	struct:Log
+printLog	logger.cpp	/^void Logger::printLog()$/;"	f	class:Logger
+printStats	logger.cpp	/^void Logger::printStats()$/;"	f	class:Logger
+refresh	logger.h	/^    void refresh() {$/;"	f	class:Logger
+serialOP.cpp	serialOP.cpp	1;"	F
+stats	logger.h	/^    Statistics stats;$/;"	m	class:Logger
+total_instructions	logger.h	/^  unsigned long long total_instructions;$/;"	m	struct:Statistics
+total_lane	logger.h	/^  unsigned long long total_lane;$/;"	m	struct:Statistics
+usage	main.cpp	/^void usage(const char *progname)$/;"	f
+utilized_lane	logger.h	/^  unsigned long long utilized_lane;$/;"	m	struct:Statistics
+value	PPintrin.h	/^  T value[VECTOR_WIDTH];$/;"	m	struct:__pp_vec
+vectorOP.cpp	vectorOP.cpp	1;"	F
+verifyResult	main.cpp	/^bool verifyResult(float *values, int *exponents, float *output, float *gold, int N)$/;"	f
