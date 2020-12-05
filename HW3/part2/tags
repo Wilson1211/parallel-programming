@@ -1,0 +1,133 @@
+!_TAG_FILE_FORMAT	2	/extended format; --format=1 will not append ;" to lines/
+!_TAG_FILE_SORTED	1	/0=unsorted, 1=sorted, 2=foldcase/
+!_TAG_PROGRAM_AUTHOR	Darren Hiebert	/dhiebert@users.sourceforge.net/
+!_TAG_PROGRAM_NAME	Exuberant Ctags	//
+!_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
+!_TAG_PROGRAM_VERSION	5.9~svn20110310	//
+ASSERT	common/contracts.h	16;"	d
+ASSERT	common/contracts.h	22;"	d
+ASSERT	common/contracts.h	28;"	d
+BINARYNAME	tools/Makefile	/^BINARYNAME=graphTools$/;"	m
+CMD_EDGESTATS	tools/graphTools.cpp	17;"	d	file:
+CMD_INFO	tools/graphTools.cpp	13;"	d	file:
+CMD_NOINEDGES	tools/graphTools.cpp	16;"	d	file:
+CMD_NOOUTEDGES	tools/graphTools.cpp	15;"	d	file:
+CMD_PRINT	tools/graphTools.cpp	14;"	d	file:
+CMD_TEXT2BIN	tools/graphTools.cpp	12;"	d	file:
+COL_SIZE	common/grade.h	25;"	d
+CycleTimer	common/CycleTimer.h	/^  class CycleTimer {$/;"	c
+CycleTimer.h	common/CycleTimer.h	1;"	F
+ENSURES	common/contracts.h	18;"	d
+ENSURES	common/contracts.h	24;"	d
+ENSURES	common/contracts.h	30;"	d
+EPSILON	common/grade.h	22;"	d
+GRAPH_HEADER_TOKEN	common/graph.cpp	10;"	d	file:
+Makefile	breadth_first_search/Makefile	1;"	F
+Makefile	page_rank/Makefile	1;"	F
+Makefile	tools/Makefile	1;"	F
+NOT_VISITED_MARKER	breadth_first_search/bfs.cpp	13;"	d	file:
+POINTS_INCORRECT	common/grade.h	31;"	d
+POINTS_NA	common/grade.h	28;"	d
+PageRankConvergence	page_rank/grade.cpp	20;"	d	file:
+PageRankConvergence	page_rank/main.cpp	20;"	d	file:
+PageRankDampening	page_rank/grade.cpp	19;"	d	file:
+PageRankDampening	page_rank/main.cpp	19;"	d	file:
+REQUIRES	common/contracts.h	17;"	d
+REQUIRES	common/contracts.h	23;"	d
+REQUIRES	common/contracts.h	29;"	d
+ROOT_NODE_ID	breadth_first_search/bfs.cpp	12;"	d	file:
+SysClock	common/CycleTimer.h	/^    typedef unsigned long long SysClock;$/;"	t	class:CycleTimer
+USE_BINARY_GRAPH	breadth_first_search/grade.cpp	17;"	d	file:
+USE_BINARY_GRAPH	breadth_first_search/main.cpp	15;"	d	file:
+USE_BINARY_GRAPH	page_rank/grade.cpp	17;"	d	file:
+USE_BINARY_GRAPH	page_rank/main.cpp	17;"	d	file:
+_SYRAH_CYCLE_TIMER_H_	common/CycleTimer.h	2;"	d
+__BFS_H__	breadth_first_search/bfs.h	2;"	d
+__GRADE_H__	common/grade.h	2;"	d
+__GRAPH_H__	common/graph.h	2;"	d
+__GRAPH_INTERNAL_H__	common/graph_internal.h	2;"	d
+__PAGE_RANK_H__	page_rank/page_rank.h	2;"	d
+bfs.cpp	breadth_first_search/bfs.cpp	1;"	F
+bfs.h	breadth_first_search/bfs.h	1;"	F
+bfs_bottom_up	breadth_first_search/bfs.cpp	/^void bfs_bottom_up(Graph graph, solution *sol)$/;"	f
+bfs_hybrid	breadth_first_search/bfs.cpp	/^void bfs_hybrid(Graph graph, solution *sol)$/;"	f
+bfs_top_down	breadth_first_search/bfs.cpp	/^void bfs_top_down(Graph graph, solution *sol)$/;"	f
+bott_up	breadth_first_search/grade.cpp	20;"	d	file:
+build_edges	common/graph.cpp	/^void build_edges(graph* graph, int* scratch)$/;"	f
+build_incoming_edges	common/graph.cpp	/^void build_incoming_edges(graph* graph) {$/;"	f
+build_start	common/graph.cpp	/^void build_start(graph* graph, int* scratch)$/;"	f
+compareApprox	common/grade.h	/^bool compareApprox(Graph graph, T* ref, T* stu)$/;"	f
+compareArrays	common/grade.h	/^bool compareArrays(Graph graph, T* ref, T* stu)$/;"	f
+compareArraysAndDisplay	common/grade.h	/^bool compareArraysAndDisplay(Graph graph, T* ref, T*stu) $/;"	f
+compareArraysAndRadiiEst	common/grade.h	/^bool compareArraysAndRadiiEst(Graph graph, T* ref, T* stu) $/;"	f
+compute_score	breadth_first_search/grade.cpp	/^double compute_score(std::string graph_name, bool correct, double ref_time, double stu_time) {$/;"	f
+contracts.h	common/contracts.h	1;"	F
+count	breadth_first_search/bfs.h	/^  int count;$/;"	m	struct:vertex_set
+currentSeconds	common/CycleTimer.h	/^    static double currentSeconds() {$/;"	f	class:CycleTimer
+currentTicks	common/CycleTimer.h	/^    static SysClock currentTicks() {$/;"	f	class:CycleTimer
+distances	breadth_first_search/bfs.h	/^  int *distances;$/;"	m	struct:solution
+free_graph	common/graph.cpp	/^void free_graph(Graph graph)$/;"	f
+get_meta_data	common/graph.cpp	/^void get_meta_data(std::ifstream& file, graph* graph)$/;"	f
+grade.cpp	breadth_first_search/grade.cpp	1;"	F
+grade.cpp	page_rank/grade.cpp	1;"	F
+grade.h	common/grade.h	1;"	F
+graph	common/graph.h	/^struct graph$/;"	s
+graph.cpp	common/graph.cpp	1;"	F
+graph.h	common/graph.h	1;"	F
+graphTools.cpp	tools/graphTools.cpp	1;"	F
+graph_internal.h	common/graph_internal.h	1;"	F
+hybrid	breadth_first_search/grade.cpp	21;"	d	file:
+incoming_begin	common/graph_internal.h	/^static inline const Vertex* incoming_begin(const Graph g, Vertex v)$/;"	f
+incoming_edges	common/graph.h	/^    Vertex* incoming_edges;$/;"	m	struct:graph
+incoming_end	common/graph_internal.h	/^static inline const Vertex* incoming_end(const Graph g, Vertex v)$/;"	f
+incoming_size	common/graph_internal.h	/^static inline int incoming_size(const Graph g, Vertex v)$/;"	f
+incoming_starts	common/graph.h	/^    int* incoming_starts;$/;"	m	struct:graph
+load_graph	breadth_first_search/grade.cpp	/^graph* load_graph(std::string graph_filename) {$/;"	f
+load_graph	common/graph.cpp	/^Graph load_graph(const char* filename)$/;"	f
+load_graph	page_rank/grade.cpp	/^graph* load_graph(std::string graph_filename) {$/;"	f
+load_graph_binary	common/graph.cpp	/^Graph load_graph_binary(const char* filename)$/;"	f
+main	breadth_first_search/grade.cpp	/^int main(int argc, char** argv) {$/;"	f
+main	breadth_first_search/main.cpp	/^int main(int argc, char** argv) {$/;"	f
+main	page_rank/grade.cpp	/^int main(int argc, char** argv) {$/;"	f
+main	page_rank/main.cpp	/^int main(int argc, char** argv) {$/;"	f
+main	tools/graphTools.cpp	/^int main(int argc, char** argv) {$/;"	f
+main.cpp	breadth_first_search/main.cpp	1;"	F
+main.cpp	page_rank/main.cpp	1;"	F
+max_vertices	breadth_first_search/bfs.h	/^  int max_vertices;$/;"	m	struct:vertex_set
+msPerTick	common/CycleTimer.h	/^    static double msPerTick() {$/;"	f	class:CycleTimer
+num_edges	common/graph.h	/^    int num_edges;$/;"	m	struct:graph
+num_edges	common/graph_internal.h	/^static inline int num_edges(const Graph graph)$/;"	f
+num_nodes	common/graph.h	/^    int num_nodes;$/;"	m	struct:graph
+num_nodes	common/graph_internal.h	/^static inline int num_nodes(const Graph graph)$/;"	f
+outgoing_begin	common/graph_internal.h	/^static inline const Vertex* outgoing_begin(const Graph g, Vertex v)$/;"	f
+outgoing_edges	common/graph.h	/^    Vertex* outgoing_edges;$/;"	m	struct:graph
+outgoing_end	common/graph_internal.h	/^static inline const Vertex* outgoing_end(const Graph g, Vertex v)$/;"	f
+outgoing_size	common/graph_internal.h	/^static inline int outgoing_size(const Graph g, Vertex v)$/;"	f
+outgoing_starts	common/graph.h	/^    int* outgoing_starts;$/;"	m	struct:graph
+pageRank	page_rank/page_rank.cpp	/^void pageRank(Graph g, double *solution, double damping, double convergence)$/;"	f
+page_rank.cpp	page_rank/page_rank.cpp	1;"	F
+page_rank.h	page_rank/page_rank.h	1;"	F
+printTimingApp	common/grade.h	/^static void printTimingApp(std::ostream& timing, const char* appName)$/;"	f
+print_graph	common/graph.cpp	/^void print_graph(const graph* graph)$/;"	f
+print_help	tools/graphTools.cpp	/^void print_help(const char* binary_name) {$/;"	f
+print_scores	breadth_first_search/grade.cpp	/^void print_scores(std::vector<std::string> grade_graphs, std::vector<std::vector<double>> scores) {$/;"	f
+print_scores	page_rank/grade.cpp	/^void print_scores(std::vector<std::string> grade_graphs, std::vector<double> scores) {$/;"	f
+print_separator_line	breadth_first_search/grade.cpp	/^void print_separator_line() {$/;"	f
+print_separator_line	page_rank/grade.cpp	/^void print_separator_line() {$/;"	f
+read_graph_file	common/graph.cpp	/^void read_graph_file(std::ifstream& file, int* scratch)$/;"	f
+run_on_graph	breadth_first_search/grade.cpp	/^void run_on_graph(int idx, graph* g, int num_threads, int num_runs, $/;"	f
+run_on_graph	page_rank/grade.cpp	/^double run_on_graph(graph* g, int num_threads, int num_runs, std::string graph_name) {$/;"	f
+secondsPerTick	common/CycleTimer.h	/^    static double secondsPerTick() {$/;"	f	class:CycleTimer
+sep	common/grade.h	/^static void sep(std::ostream& out, char separator = '-', int length = 78)$/;"	f
+solution	breadth_first_search/bfs.h	/^struct solution$/;"	s
+store_graph_binary	common/graph.cpp	/^void store_graph_binary(const char* filename, Graph graph) {$/;"	f
+tickUnits	common/CycleTimer.h	/^    static const char* tickUnits() {$/;"	f	class:CycleTimer
+ticksPerSecond	common/CycleTimer.h	/^    static double ticksPerSecond() {$/;"	f	class:CycleTimer
+top_down	breadth_first_search/grade.cpp	19;"	d	file:
+top_down_step	breadth_first_search/bfs.cpp	/^void top_down_step($/;"	f
+usage	breadth_first_search/grade.cpp	/^void usage(const char* binary_name) {$/;"	f
+usage	page_rank/grade.cpp	/^void usage(const char* binary_name) {$/;"	f
+vertex_set	breadth_first_search/bfs.h	/^struct vertex_set {$/;"	s
+vertex_set_clear	breadth_first_search/bfs.cpp	/^void vertex_set_clear(vertex_set *list)$/;"	f
+vertex_set_init	breadth_first_search/bfs.cpp	/^void vertex_set_init(vertex_set *list, int count)$/;"	f
+vertices	breadth_first_search/bfs.h	/^  int *vertices;$/;"	m	struct:vertex_set

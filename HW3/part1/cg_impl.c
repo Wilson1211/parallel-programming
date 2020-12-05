@@ -4,6 +4,17 @@
 // Floaging point arrays here are named as in spec discussion of
 // CG algorithm
 //---------------------------------------------------------------------
+
+double submatrix_vector_multiply(int j, int* colidx, int* rowstr, double* z) {
+    double d = 0.0;
+    int k;
+    for (k = rowstr[j]; k < rowstr[j + 1]; k++)
+    {
+        d = d + a[k] * z[colidx[k]];
+    }
+    return d;
+}
+
 void conj_grad(int colidx[],
                int rowstr[],
                double x[],
@@ -48,8 +59,11 @@ void conj_grad(int colidx[],
     // The conj grad iteration loop
     //---->
     //---------------------------------------------------------------------
-//#pragma omp parallel
-//{
+//{ 
+
+//    #pragma omp single
+//    {
+//#pragma omp parallel for ordered private(d, sum, rho, rho0, alpha, beta, j, k) shared(q,z,r,p)// reduction(+:q,+:z,+:r,+:p)
     for (cgit = 1; cgit <= cgitmax; cgit++)
     {
         //---------------------------------------------------------------------
@@ -66,15 +80,18 @@ void conj_grad(int colidx[],
         
         d = 0.0;
        
-        //#pragma omp parallel for schedule(static, 2) reduction(+:d)
-        #pragma omp parallel single {
+        //sum = 0.0;
+        #pragma omp parallel for private(sum) shared(q)
+	//#pragma omp ordered
+	//{
         for (j = 0; j < lastrow - firstrow + 1; j++)
         {
             sum = 0.0;
         //{
-            //#pragma omp for reduction(+:sum)
-            #pragma omp task {
-            for (k = rowstr[j]; k < rowstr[j + 1]; k++)
+            //#pragma omp parallel for schedule(static, 2) reduction(+:sum)
+	    {
+	    //#pragma omp parallel for schedule(static, 1) reduction(+:sum)
+            for (k = rowstr[j]; k < rowstr[j+1]; k++)
             {
                 sum = sum + a[k] * p[colidx[k]];
                 //q[j] = q[j] + a[k] * p[colidx[k]];
@@ -83,18 +100,18 @@ void conj_grad(int colidx[],
             
         //}
             q[j] = sum;
-            d = d + p[j] * q[j];
-        }
+            //d = d + p[j] * q[j];
+            //sum = 0.0;
         }
         //---------------------------------------------------------------------
         // Obtain p.q
         //---------------------------------------------------------------------
-/*        d = 0.0;
+        d = 0.0;
         for (j = 0; j < lastcol - firstcol + 1; j++)
         {
             d = d + p[j] * q[j];
         }
-*/
+
         //---------------------------------------------------------------------
         // Obtain alpha = rho / (p.q)
         //---------------------------------------------------------------------
@@ -110,20 +127,26 @@ void conj_grad(int colidx[],
         // and    r = r - alpha*q
         //---------------------------------------------------------------------
         rho = 0.0;
+        //#pragma omp parallel for schedule(static, 1)// reduction(+:rho)
+        //#pragma omp task shared(rho) firstprivate(j)
+        //#pragma omp for schedule(static, 2)
+	
         for (j = 0; j < lastcol - firstcol + 1; j++)
         {
             z[j] = z[j] + alpha * p[j];
             r[j] = r[j] - alpha * q[j];
-            rho = rho + r[j] * r[j];
+            //rho = rho + r[j] * r[j];
         }
+        
         //---------------------------------------------------------------------
         // rho = r.r
         // Now, obtain the norm of r: First, sum squares of r elements locally...
         //---------------------------------------------------------------------
-        /*for (j = 0; j < lastcol - firstcol + 1; j++)
+        //#pragma omp parallel for schedule(static, 1) reduction(+:rho)
+        for (j = 0; j < lastcol - firstcol + 1; j++)
         {
             rho = rho + r[j] * r[j];
-        }*/
+        }
         //---------------------------------------------------------------------
         // Obtain beta:
         //---------------------------------------------------------------------
@@ -136,8 +159,10 @@ void conj_grad(int colidx[],
         {
             p[j] = r[j] + beta * p[j];
         }
+	//}
     } // end of do cgit=1,cgitmax
-//}
+    //} // end of omp single
+//} // end of omp parallel
 
     //---------------------------------------------------------------------
     // Compute residual norm explicitly:  ||r|| = ||x - A.z||
@@ -145,23 +170,43 @@ void conj_grad(int colidx[],
     // The partition submatrix-vector multiply
     //---------------------------------------------------------------------
     sum = 0.0;
+    //#pragma omp parallel for schedule(static, 2) reduction(+:sum)
+    //#pragma omp parallel
+    //{
+    //#pragma omp single
+    //{
     for (j = 0; j < lastrow - firstrow + 1; j++)
     {
         d = 0.0;
-        for (k = rowstr[j]; k < rowstr[j + 1]; k++)
+/*        for (k = rowstr[j]; k < rowstr[j + 1]; k++)
         {
             d = d + a[k] * z[colidx[k]];
+        }*/
+        //r[j] = d;
+        #pragma omp task firstprivate(j, d) shared(sum)
+        {
+            //d = submatrix_vector_multiply(j, colidx, rowstr, z);
+            for (k = rowstr[j]; k < rowstr[j + 1]; k++)
+            {
+                d = d + a[k] * z[colidx[k]];
+            }
+            d = x[j] - d;
+        
+            sum = sum + d * d;
         }
-        r[j] = d;
     }
+    //} // end of omp single
+    //}  // end of omp parallel 
     //---------------------------------------------------------------------
     // At this point, r contains A.z
     //---------------------------------------------------------------------
+/*
     for (j = 0; j < lastcol - firstcol + 1; j++)
     {
         d = x[j] - r[j];
         sum = sum + d * d;
     }
+*/
     *rnorm = sqrt(sum);
 }
 //---------------------------------------------------------------------

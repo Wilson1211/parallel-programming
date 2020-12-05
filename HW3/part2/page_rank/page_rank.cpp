@@ -56,4 +56,23 @@ void pageRank(Graph g, double *solution, double damping, double convergence)
      }
 
    */
+  for(int i = 0; i < numNodes; i++) {
+    score_old[i] = equal_prob;
+  }
+  
+  while(global_diff < convergence) {
+    score_new[vi] = sum over all nodes vj reachable from incoming edges
+                          { score_old[vj] / number of edges leaving vj  }
+    score_new[vi] = (damping * score_new[vi]) + (1.0-damping) / numNodes;
+
+    score_new[vi] += sum over all nodes v in graph with no outgoing edges
+                          { damping * score_old[v] / numNodes }
+
+       // compute how much per-node scores have changed
+       // quit once algorithm has converged
+
+    global_diff = sum over all nodes vi { abs(score_new[vi] - score_old[vi]) };
+  }
+
+
 }
