@@ -61,13 +61,33 @@ void pageRank(Graph g, double *solution, double damping, double convergence)
   }
   
   while(global_diff < convergence) {
-    score_new[vi] = sum over all nodes vj reachable from incoming edges
-                          { score_old[vj] / number of edges leaving vj  }
-    score_new[vi] = (damping * score_new[vi]) + (1.0-damping) / numNodes;
+/*
+    for (int i=0; i<num_nodes(g); i++) {
+      // Vertex is typedef'ed to an int. Vertex* points into g.outgoing_edges[]
+      const Vertex* start = outgoing_begin(g, i);
+      const Vertex* end = outgoing_end(g, i);
+      for (const Vertex* v=start; v!=end; v++)
+          printf("Edge %u %u\n", i, *v);
+    }
+*/
+    for (int i=0; i<num_nodes(g); i++) {
+      //score_new[vi] += sum over all nodes vj reachable from incoming edges
+        //                  { score_old[vj] / number of edges leaving vj  }
+      int start = g->incoming_starts[i];
+      int end = start + node_counts[i];
+      for(int j=start;j<end;j++) {
+        score_new[i] += score_old[j]/node_scatter[j];
+      }
+    
+    
+    //score_new[vi] = (damping * score_new[vi]) + (1.0-damping) / numNodes;
+      score_new[i] = (damping * score_new[i]) + (1.0-damping) / numNodes;
 
-    score_new[vi] += sum over all nodes v in graph with no outgoing edges
+      score_new[vi] += sum over all nodes v in graph with no outgoing edges
                           { damping * score_old[v] / numNodes }
-
+      for(int j=0;j<)
+      
+    }
        // compute how much per-node scores have changed
        // quit once algorithm has converged
 
