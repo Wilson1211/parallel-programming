@@ -153,12 +153,13 @@ void bottom_up_step(
     vertex_set *not_access_node,
     vertex_set *frontier_index,
     int *distances,
-    int count)
+    int count, 
+    int *vis)
 {
 
     //int cnt = 0;
     int numNodes = g->num_nodes;
-    int tmp[g->num_nodes] = {};
+    //int tmp[g->num_nodes] = {};
 
     #pragma omp parallel for
     for(int i=0;i<not_access_node->count;i++) {
@@ -177,9 +178,10 @@ void bottom_up_step(
         int flag = 0;
         for(int neighbor=start_edge;neighbor<end_edge;neighbor++){
             int incoming = g->incoming_edges[neighbor];
-            if(distances[incoming] != NOT_VISITED_MARKER){
+            if(vis[incoming]){
                 //tmp[cnt++] = outgoing;
-                //distances[node] = count;
+                distances[node] = count;
+                //vis[node] = true;
                 flag = 1;
                 break;
             }
@@ -195,15 +197,17 @@ void bottom_up_step(
             //printf("old_val: %d\n", old_val);
             frontier_index->vertices[old_val] = node;
 
-        }else{
+        }//else{
             /*
             do{
                 old_val = cnt;
                 printf("i: %d, cnt: %d\n", i, cnt);
             }while(!(__sync_bool_compare_and_swap(&(cnt), old_val, cnt+1)));
-            tmp[cnt] = node;*/
-            tmp[node] = count;
-        }
+            tmp[cnt] = node;
+            
+            */
+            //tmp[node] = count;
+        //}
         
 
     }
@@ -212,6 +216,7 @@ void bottom_up_step(
         distances[tmp[i]] = count;
     }    
     */
+/*   
    if(not_access_node->count < 10){
         printf("leave first for loop\n");
    }
@@ -224,6 +229,12 @@ void bottom_up_step(
    if(not_access_node->count<10){
        printf("leave step\n");
    }
+*/
+    for(int i=0;i<numNodes;i++) {
+        if(distances[i]){
+            vis[i] = true;
+        }
+    }
 }
 
 
@@ -249,19 +260,23 @@ void bfs_bottom_up(Graph graph, solution *sol)
     vertex_set *not_access_node = &list1;
     vertex_set *frontier_index = &list2;
 
+    int *vis = (int*)malloc((graph->num_nodes)*sizeof(int));
+    memset(vis, 0, (graph->num_nodes)*sizeof(int));
 
     for (int i = 1; i < graph->num_nodes; i++){
         sol->distances[i] = NOT_VISITED_MARKER;
         not_access_node->vertices[i-1] = i;
     }
     sol->distances[ROOT_NODE_ID] = 0;
-
+    vis[0] = true;
     not_access_node->count = graph->num_nodes-1;
     
 
     int count = 1;
     int cnt = 0;
     int i;
+
+
     while (not_access_node->count != 0)
     {
         printf("not_access_node_count: %d\n", not_access_node->count);
@@ -272,7 +287,7 @@ void bfs_bottom_up(Graph graph, solution *sol)
 
         vertex_set_clear(frontier_index);
 
-        bottom_up_step(graph, not_access_node, frontier_index, sol->distances, count);
+        bottom_up_step(graph, not_access_node, frontier_index, sol->distances, count, vis);
         count++;
 
 #ifdef VERBOSE
@@ -300,11 +315,11 @@ void bfs_bottom_up(Graph graph, solution *sol)
 
         //not_access_node->count = not_access_node->count - frontier_index->count;
     }
-/*
+
     for (int i = 0; i < graph->num_nodes; i++){
         printf("bottom-up i: %d, dis: %d\n", i, sol->distances[i]);
     }
-    */
+    free(vis);
 }
 
 
