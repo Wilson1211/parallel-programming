@@ -50,14 +50,12 @@ void hostFE (float upperX, float upperY, float lowerX, float lowerY, int* img, i
     //dim3 threads(THREAD, THREAD);
     //dim3 blocks(bx, by);
 
-    int *h_img;
-    int *d_img;
-    int bytes = (upperX-lowerX)*(upperY-lowerY);
+    int *d_img, *h_img;
+    size_t bytes = (upperX-lowerX)*(upperY-lowerY)*sizeof(int);
+    h_img = (int*) malloc(bytes);
 
-    cudaMallocHost(h_img, bytes);
-    cudaHostAlloc( (void**)&h_img, bytes ,cudaHostAllocDefault);
-    cudaMemcpyDeviceToHost(h_img, img, cudaMemcpyHostToHost);
-    cudaMalloc(d_img, bytes);
+
+    cudaMalloc((void **)&d_img, bytes);
 
     cudaMemcpy(h_img, img, bytes, cudaMemcpyHostToHost);
     cudaMemcpy(d_img, img, bytes, cudaMemcpyHostToDevice);
@@ -68,5 +66,4 @@ void hostFE (float upperX, float upperY, float lowerX, float lowerY, int* img, i
     cudaMemcpy(img, d_img, bytes, cudaMemcpyDeviceToHost);
 
     cudaFree(d_img);
-    cudaFree(h_img);
 }

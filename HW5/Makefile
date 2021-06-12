@@ -36,5 +36,5 @@ $(OBJDIR)/%.o: $(COMMONDIR)/%.cpp
 
 $(OBJDIR)/main.o: $(COMMONDIR)/CycleTimer.h kernel.h
 
-$(OBJDIR)/kernel.o : kernel.cu kernel.h
-	${NVCC} ${CUDA_COMPILE_FLAGS} -c kernel.cu -o $@
+$(OBJDIR)/kernel.o : kernel3.cu kernel.h
+	${NVCC} ${CUDA_COMPILE_FLAGS} -c kernel3.cu -o $@
