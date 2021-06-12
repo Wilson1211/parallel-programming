@@ -95,7 +95,10 @@ void top_down_step(
             }
             
         }
+        
+
     }
+    
 }
 
 // Implements top-down BFS.
@@ -231,7 +234,7 @@ void bottom_up_step(
    }
 */
     for(int i=0;i<numNodes;i++) {
-        if(distances[i]){
+        if(distances[i] != NOT_VISITED_MARKER){
             vis[i] = true;
         }
     }
@@ -261,7 +264,10 @@ void bfs_bottom_up(Graph graph, solution *sol)
     vertex_set *frontier_index = &list2;
 
     int *vis = (int*)malloc((graph->num_nodes)*sizeof(int));
-    memset(vis, 0, (graph->num_nodes)*sizeof(int));
+    //memset(vis, 0, (graph->num_nodes)*sizeof(int));
+    for(int i=0;i<graph->num_nodes;i++){
+        vis[i] = false;
+    }
 
     for (int i = 1; i < graph->num_nodes; i++){
         sol->distances[i] = NOT_VISITED_MARKER;
@@ -279,7 +285,7 @@ void bfs_bottom_up(Graph graph, solution *sol)
 
     while (not_access_node->count != 0)
     {
-        printf("not_access_node_count: %d\n", not_access_node->count);
+        //printf("not_access_node_count: %d\n", not_access_node->count);
 
 #ifdef VERBOSE
         double start_time = CycleTimer::currentSeconds();
@@ -316,9 +322,9 @@ void bfs_bottom_up(Graph graph, solution *sol)
         //not_access_node->count = not_access_node->count - frontier_index->count;
     }
 
-    for (int i = 0; i < graph->num_nodes; i++){
-        printf("bottom-up i: %d, dis: %d\n", i, sol->distances[i]);
-    }
+    //for (int i = 0; i < graph->num_nodes; i++){
+    //    printf("bottom-up i: %d, dis: %d\n", i, sol->distances[i]);
+    //}
     free(vis);
 }
 
